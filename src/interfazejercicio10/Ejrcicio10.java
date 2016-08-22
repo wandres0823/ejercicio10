@@ -44,12 +44,15 @@ public class Ejrcicio10 extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 0, -1, 300));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 51, 255));
         jLabel1.setText("fotos");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
         jLabel2.setText("numero de fotos :");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 130, -1));
 
+        txtFotos.setFont(new java.awt.Font("Century", 0, 11)); // NOI18N
+        txtFotos.setForeground(new java.awt.Color(0, 0, 153));
         txtFotos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFotosKeyTyped(evt);
@@ -66,6 +69,8 @@ public class Ejrcicio10 extends javax.swing.JFrame {
         getContentPane().add(cmdPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
 
         txtOperacion.setEditable(false);
+        txtOperacion.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        txtOperacion.setForeground(new java.awt.Color(0, 255, 204));
         txtOperacion.setText(" ");
         getContentPane().add(txtOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 70, -1));
 
@@ -95,7 +100,7 @@ public class Ejrcicio10 extends javax.swing.JFrame {
 
     private void cmdPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPagarActionPerformed
         String res;
-       double nf,mp,iva,mtp;
+       long nf,mp,iva,mtp;
        
        if(txtFotos.getText().isEmpty()){
            JOptionPane.showMessageDialog (this, "digite la cantidadd de fotos","error",JOptionPane.ERROR_MESSAGE);
@@ -104,9 +109,10 @@ public class Ejrcicio10 extends javax.swing.JFrame {
            }
        else {
        
-       nf =Double.parseDouble(txtFotos.getText());
+       nf =Long.parseLong(txtFotos.getText());
        iva=(1500*16)/100;
        mtp=(1500*nf)+iva;
+       
        
        res=String.valueOf(mtp);
         txtOperacion.setText(res);
